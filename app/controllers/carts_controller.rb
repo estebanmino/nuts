@@ -19,12 +19,12 @@ class CartsController < ApplicationController
     current_order.update_attribute(:confirmed, true)
     current_order.update_attribute(:delivered, false)
 
-    if logged_in
+    if logged_in?
       current_order.update_attribute(:address_id, current_address.id)
-      session.delete(:user_id)
+    else
+      session.delete(:address_id)      
     end
-    
-    session.delete(:address_id)
+
     session.delete(:order_id)
     redirect_to home_path
     flash[:success] = 'Pedido confirmado, por favor revise su email'

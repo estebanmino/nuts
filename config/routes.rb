@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   get '/checkout/confirmation', to: 'carts#confirmation', as: 'confirmation'
 
-  post '/checkout/confirmation', to: 'carts#confirm', as: 'confirm'
+  patch '/checkout/confirmation', to: 'carts#confirm', as: 'confirm'
 
   get '/checkout/confirmation/edit', to: 'addresses#edit', as: 'address_edit'
 
