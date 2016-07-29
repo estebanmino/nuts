@@ -1,0 +1,37 @@
+<div class="row">
+
+  <div class="col-xs-12 col-md-4">
+
+    <div class="panel panel-default panel-order pull-right col-xs-4">
+      <% @order_item = current_order.order_items.new %>
+
+      <%= form_for @order_item do |f| %>
+
+      <h4>Precio: $<%= product.price %></h4>
+        <div class="input-group">
+
+          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+
+          <%= f.hidden_field :product_id, value: product.id %>
+
+          <%= f.submit "Añadir al carro de compras", class: "btn btn-primary center-block" %>
+
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-md-8">
+
+    <h3 class="cavorting-font" style="font-size: 50px;"><%= product.name %></small></h3>
+
+    <%= image_tag product.picture, class: "img-panel img-responsive  center-block" %>
+
+    <h4><%= product.description %></small></h4>
+
+  </div>
+
+
+
+</div>

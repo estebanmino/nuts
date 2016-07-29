@@ -1,0 +1,18 @@
+<% if !logged_in? %>
+
+  <div class="row">
+    <div class="col-xs-10">
+      <h3>Ingrese a su cuenta</h3>
+      <%= render 'sessions/checkout_form' %>
+
+      <h3>...o continue como invitado</h3>
+
+      <div class="center"><%= link_to 'Continuar como invitado', shipping_path, class: "btn btn-primary" %></div>
+    </div>
+  </div>
+<% else %>
+  <% controller.redirect_to confirmation_path %>
+<% end %>
+<br>
+<br>
+<br>

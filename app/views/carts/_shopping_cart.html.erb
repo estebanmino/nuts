@@ -1,0 +1,22 @@
+  <% @order_items = current_order.order_items %>
+  <% if @order_items.size == 0 %>
+    <p class="text-center">
+      No hay productos en el carro de compras.  Dirijase a <%= link_to "Tienda", shop_path %> y agrega los productos que desees.
+    </p>
+  <% else %>
+    <% @order_items.each do |order_item| %>
+      <div class="cart-row-sidebar">
+        <%= render 'carts/cart_row_sidebar', product: order_item.product, order_item: order_item %>
+      </div>
+    <% end %>
+
+    <h5 class="text-right">Precio total: $<%= current_order.subtotal %></h5>
+
+    <div class="row">
+        <%= link_to  'Checkout', checkout_path, class: 'btn btn-primary'  %>
+    </div>
+    <br>
+    <div class="row">
+        <%= link_to  'Ver carro de compras', cart_path %>
+    </div>
+  <% end %>

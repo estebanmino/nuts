@@ -1,0 +1,86 @@
+<div class="container" >
+
+  <% if current_user %>
+    <% if current_user.is_admin? %>
+
+
+      <% address = @order.address %>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-2">
+
+          <div class="container-fluid">
+            <h3>Datos cliente</h3>
+
+            <div class="row">
+              <div class="col-xs-6 ">
+                <h4>Nombre: <%= address.first_name %></h4>
+              </div>
+              <div class="col-xs-6">
+                <h4>Apellido: <%= address.last_name %></h4>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <h4>Correo electrónico: <%= address.email %></h4>
+              </div>
+            </div>
+
+            <br>
+
+            <% if !address.phone_number.nil? %>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Teléfono de contacto: <%= address.phone_number %></h4>
+                </div>
+              </div>
+            <% end %>
+
+            <h3>Datos de despacho</h3>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <h4>Dirección: <%= address.street %></h4>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <h4>Número, Apto: <%= address.number %></h4>
+              </div>
+              <div class="col-xs-6">
+                <h4>Comuna: <%= address.commune %></h4>
+              </div>
+            </div>
+
+            <h3>Productos</h3>
+            <% @order_items.each do |order_item| %>
+              <div class="row">
+                <div class="col-xs-5">
+                  <h5><%= order_item.product.name %></h5>
+                </div>
+                <div class="col-xs-3">
+                  <h5><%=  order_item.quantity %> kg</h5>
+                </div>
+                <div class="col-xs-4">
+                  <h5>$<%=  order_item.quantity * order_item.unit_price %> </h5>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+
+    <% else %>
+      <h2>No tiene los permisos para ingresar</h2>
+    <% end %>
+  <% else %>
+    <h2>Ingrese a su cuenta administrador</h2>
+  <% end %>
+</div>

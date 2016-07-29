@@ -1,0 +1,65 @@
+<div class="container">
+
+  <% if current_user %>
+    <% if current_user.is_admin? %>
+
+      <p id="notice"><%= notice %></p>
+
+      <h1>Lista de Ordenes</h1>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><h3>ID</h3></th>
+            <th><h3>Subtotal</h3></th>
+            <th><h3>Confirmada</h3></th>
+            <th><h3>Address</h3></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Order.where( confirmed: true).each do |order| %>
+            <tr>
+              <td><h4><%= order.id %></h4></td>
+              <td><h4><%= order.subtotal %></h4></td>
+              <td><h4><%= order.confirmed %></h4></td>
+              <td><h4><%= order.address.id %></h4></td>
+              <td><h4><%= link_to 'Order', admin_order_path(order) %></h4></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+      <h1>Lista de Ordenes Entregadas</h1>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><h3>ID</h3></th>
+            <th><h3>Subtotal</h3></th>
+            <th><h3>Confirmada</h3></th>
+            <th><h3>Address</h3></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Order.where( delivered: true ).each do |order| %>
+            <tr>
+              <td><h4><%= order.id %></h4></td>
+              <td><h4><%= order.subtotal %></h4></td>
+              <td><h4><%= order.confirmed %></h4></td>
+              <td><h4><%= order.address.id %></h4></td>
+              <td><h4><%= link_to 'Order', admin_order_path(order) %></h4></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <% else %>
+      <h2>No tiene los permisos para ingresar</h2>
+    <% end %>
+  <% else %>
+    <h2>Ingrese a su cuenta administrador</h2>
+  <% end %>
+</div>

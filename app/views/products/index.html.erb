@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tienda</h1>
+  <br>
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <% @products.each do |product| %>
+      <td>
+        <div class="col-xs-12 col-md-4 text-center">
+          <div class="panel panel-default panel-img" >
+            <%= link_to  product , class: 'btn btn-product' do %>
+              <h3><%= product.name %></h3>
+                <div class="panel-picture" >
+                  <%= image_tag product.picture, class: "img-panel img-responsive  center-block" %>
+                </div>
+
+              <p>Precio: <%= product.price  %></p>
+
+            <% end %>
+          </div>
+        </div>
+        </td>
+      <% end %>
+    </div>
+  </div>

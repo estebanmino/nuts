@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<div class="container" >
+
+  <% if current_user %>
+    <% if current_user.is_admin? %>
+
+    <h4><%= @product.name %></h4>
+    <h4><%= @product.price %></h4>
+    <h4><%= @product.description %></h4>
+    <h4><%= @product.active %></h4>
+
+    <br>
+    <br>
+
+    <%= link_to 'Edit', admin_edit_product_path(@product) %> |
+    <%= link_to 'Back', admin_products_path %>
+
+    <% else %>
+      <h2>No tiene los permisos para ingresar</h2>
+    <% end %>
+    <% else %>
+      <h2>Ingrese a su cuenta administrador</h2>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for(@address, url: signup_path) do |f| %>
+
+      <% if @address.errors.any? || (!@address.user.nil? && @address.user.errors.any?)%>
+        <% flash[:danger] = "Intentelo nuevamente" %>
+        <% @address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
+
+
+      <h3>Datos cliente</h3>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.text_field :first_name, class: "form-control", placeholder: "Nombre"%>
+        </div>
+        <div class="col-xs-6">
+          <%= f.text_field :last_name, class: "form-control", placeholder: "Apellido"  %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.email_field :email, class: "form-control", placeholder: "Correo electrónico" %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.text_field :phone_number, class: "form-control", placeholder: "Teléfono contacto (opcional)" %>
+        </div>
+      </div>
+
+      <h3>Datos de despacho</h3>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.text_field :street, class: "form-control", placeholder: "Dirección"  %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.text_field :number, class: "form-control", placeholder: "Número, Apto, etc"  %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.text_field :commune, class: "form-control", placeholder: "Comuna"  %>
+        </div>
+      </div>
+
+
+
+
+      <br>
+      <br>
+
+      <%= f.password_field :password, class: "form-control", placeholder:  "Contraseña" %>
+
+      <br>
+
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder:  "Confirme contraseña" %>
+      <br>
+
+      <%= f.submit "Crear cuenta", class: "btn btn-primary" %>
+
+    <% end %>
+    <br>
+    <br>
+
+  </div>
+</div>

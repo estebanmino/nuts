@@ -1,0 +1,58 @@
+<div class="container">
+
+  <% if current_user %>
+    <% if current_user.is_admin? %>
+
+      <p id="notice"><%= notice %></p>
+
+      <h1>Lista de Usuarios</h1>
+
+      <table class="table table-striped">
+        <tbody>
+          <% Address.all.each do |address| %>
+          <% if !address.user.nil? %>
+            <tr>
+              <td><h4><%= address.first_name %></h4></td>
+              <td><h4><%= address.last_name %></h4></td>
+              <td><h4><%= address.email %></h4></td>
+              <% if address.user %>
+              <td><h4><%= address.user.is_admin? %></h4></td>
+              <%else%>
+              <td><h4></h4></td>
+              <% end %>
+              <td><h4><%= link_to 'Show', address %></h4></td>
+              <td><h4><%= link_to 'Edit', edit_address_path(address) %></h4></td>
+              <td><h4><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></h4></td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+
+      <h1>Lista de Addressess</h1>
+
+      <table class="table table-striped">
+        <tbody>
+          <% Address.all.each do |address| %>
+           <% if address.user.nil? %>
+            <tr>
+              <td><h4><%= address.first_name %></h4></td>
+              <td><h4><%= address.last_name %></h4></td>
+              <td><h4><%= address.email %></h4></td>
+              <td><h4><%= link_to 'Show', address %></h4></td>
+              <td><h4><%= link_to 'Edit', edit_address_path(address) %></h4></td>
+              <td><h4><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></h4></td>
+            </tr>
+            <% end %>
+            <% end %>
+
+        </tbody>
+      </table>
+
+    <% else %>
+      <h2>No tiene los permisos para ingresar</h2>
+    <% end %>
+  <% else %>
+    <h2>Ingrese a su cuenta administrador</h2>
+  <% end %>
+</div>

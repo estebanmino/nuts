@@ -1,0 +1,61 @@
+<% address = Address.find_by_id session[:address_id] %>
+
+<div class="row">
+
+    <div class="container-fluid">
+
+      <h3>Datos cliente</h3>
+
+      <div class="row">
+        <div class="col-xs-6 text-align">
+          <h4>Nombre: <%= address.first_name %></h4>
+        </div>
+        <div class="col-xs-6">
+          <h4>Apellido: <%= address.last_name %></h4>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Correo electrónico: <%= address.email %></h4>
+        </div>
+      </div>
+
+      <br>
+
+      <% if !address.phone_number.nil? %>
+        <div class="row">
+          <div class="col-xs-12">
+            <h4>Teléfono de contacto: <%= address.phone_number %></h4>
+          </div>
+        </div>
+      <% end %>
+
+      <h3>Datos de despacho</h3>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Dirección: <%= address.street %></h4>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <h4>Número, Apto: <%= address.number %></h4>
+        </div>
+        <div class="col-xs-6">
+          <h4>Comuna: <%= address.commune %></h4>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="pull-right">
+          <%= link_to 'Editar datos', address_edit_path, class: "btn btn-sec" %>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="container" >
+
+  <% if current_user %>
+    <% if current_user.is_admin? %>
+
+      <h1>Editar Producto</h1>
+
+      <%= form_for(@product) do |f| %>
+        <% if @product.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+            <ul>
+            <% @product.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <h3><%= f.label :name, "Nombre" %></h3>
+        <%= f.text_field :name, class: "form-control"  %>
+
+        <h3><%= f.label :price, "Precio" %></h3>
+        <%= f.text_field :price, class: "form-control"  %>
+
+        <h3><%= f.label :description, "Description" %></h3>
+        <%= f.text_field :description, class: "form-control"  %>
+
+        <h3><%= f.label :picture, "Imagen" %></h3>
+        <%= f.file_field :picture, class: "form-control"  %>
+
+        <br>
+
+        <%= f.submit "Crear producto", class: "btn btn-primary form-control" %>
+
+      <% end %>
+
+
+      <%= link_to 'Show', @product %> |
+      <%= link_to 'Back', admin_products_path %>
+
+      <% else %>
+        <h2>No tiene los permisos para ingresar</h2>
+      <% end %>
+    <% else %>
+      <h2>Ingrese a su cuenta administrador</h2>
+    <% end %>
+  </div>

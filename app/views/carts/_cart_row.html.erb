@@ -1,0 +1,23 @@
+  <div class="row">
+    <div class="col-xs-8 col-md-8 col-lg-8">
+      <h4><%= product.name %></h4>
+    </div>
+    <div class="col-xs-4 col-md-4 col-lg-4 text-right">
+      <%= link_to "Eliminar", order_item, { data: { confirm: "Estás eliminando #{order_item.product.name} de tu carro de compras" }, method: :delete } %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-6 col-md-6 col-lg-6">
+      <h4 class="text-right">Precio: $<%= order_item.total_price %></h4>
+    </div>
+
+    <div class="col-xs-4 col-md-4 col-lg-4">
+      <% if order_item.quantity > 1 %>
+        <h4 class="text-right">Cantidad: <%= order_item.quantity %> kgs</h4>
+      <% else %>
+        <h4 class="text-right">Cantidad: <%= order_item.quantity %> kg</h4>
+      <% end %>
+    </div>
+</div>

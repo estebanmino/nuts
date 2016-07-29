@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.email_field :email, class: "form-control", placeholder: "Email"  %>
+
+      <br>
+      
+      <%= f.password_field :password, class: 'form-control', placeholder: "Contraseña" %>
+
+      <br>
+
+      <%= f.submit "Ingresar", class: "btn btn-primary" %>
+
+    <% end %>
+
+    <br>
+
+    <h5>¿Aún sin cuenta en Avellano? <%= link_to "Creala ahora!", signup_path %></h5>
+
+  </div>
+</div>

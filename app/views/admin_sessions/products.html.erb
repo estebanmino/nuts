@@ -1,0 +1,44 @@
+<div class="container">
+
+  <% if current_user %>
+    <% if current_user.is_admin? %>
+
+
+      <p id="notice"><%= notice %></p>
+
+      <h1>Productos</h1>
+
+        <div class="container-fluid">
+          <div class="row">
+            <% @products.each do |product| %>
+            <td>
+              <div class="col-xs-12 col-md-4 text-center">
+                <div class="panel panel-default panel-img" >
+                  <%= link_to  admin_product_path(product) , class: 'btn btn-product' do %>
+                    <h3><%= product.name %></h3>
+                      <div class="panel-picture" >
+                        <%= image_tag product.picture, class: "img-panel img-responsive  center-block" %>
+                      </div>
+
+                    <p>Precio: <%= product.price  %></p>
+
+                    <p><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                  <% end %>
+                </div>
+              </div>
+              </td>
+            <% end %>
+          </div>
+        </div>
+
+
+      <br>
+      <%= link_to 'New Product', '/admin/products/new' %>
+
+    <% else %>
+      <h2>No tiene los permisos para ingresar</h2>
+    <% end %>
+  <% else %>
+    <h2>Ingrese a su cuenta administrador</h2>
+  <% end %>
+</div>

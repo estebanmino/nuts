@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: checkout_login_path) do |f| %>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.email_field :email, class: "form-control", placeholder: "Email"  %>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.password_field :password, class: 'form-control', placeholder: "Contraseña" %>
+        </div>
+      </div>
+      <br>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <br>
+
+
+  </div>
+</div>
