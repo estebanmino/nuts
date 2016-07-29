@@ -34,7 +34,7 @@ class AddressesController < ApplicationController
       respond_to do |format|
         if @address.save && @user.save
           log_in @address
-          format.html { redirect_to home_path, notice: 'Usuario creado con exito!' }
+          flash[:success] = "Te damos la bienvenida a Avellano!"
         else
           if !@address.save
             format.json { render json: @address.errors, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class AddressesController < ApplicationController
       respond_to do |format|
         if @address.save
           log_in @address
-          format.html { redirect_to home_path, notice: 'Usuario creado con exito!' }
+          flash[:success] = "Te damos la bienvenida a Avellano!"
         else
           format.json { render json: @address.errors, status: :unprocessable_entity }
           format.html { render :new }
