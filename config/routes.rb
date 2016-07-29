@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   get '/signup', to: "addresses#new"
   post '/signup', to: "addresses#create"
+  patch '/signup', to: "addresses#create"
 
   get  '/login',   to: 'sessions#new'
   post '/login',   to: 'sessions#create'
@@ -41,7 +42,7 @@ Rails.application.routes.draw do
 
   get '/checkout/confirmation', to: 'carts#confirmation', as: 'confirmation'
 
-  patch '/checkout/confirmation', to: 'carts#confirm', as: 'confirm'
+  post '/checkout/confirmation', to: 'carts#confirm', as: 'confirm'
 
   get '/checkout/confirmation/edit', to: 'addresses#edit', as: 'address_edit'
 
