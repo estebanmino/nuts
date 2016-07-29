@@ -6,7 +6,6 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :total
       t.boolean :confirmed
       t.boolean :delivered
-      t.references :address, index: true, foreign_key: true
 
       t.timestamps null: false
     end
