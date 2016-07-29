@@ -92,6 +92,10 @@ class AddressesController < ApplicationController
       orders.destroy
     end
 
+    if !@address.user.nil?
+      @address.user.destroy
+    end
+
     @address.destroy
     respond_to do |format|
       format.html { redirect_to admin_users_path, notice: 'Address was successfully destroyed.' }
