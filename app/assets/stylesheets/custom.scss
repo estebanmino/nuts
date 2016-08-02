@@ -40,6 +40,34 @@ margin-right: 10px;
 
 .panel-order {
   background-color: #ffd944;
+  width: auto;
+}
+
+.panel-order .input-group{
+  width: 100%;
+}
+
+.panel-order .input-group .btn-primary{
+  width: 100%;
+}
+
+.panel-order .input-group .selection-row .selection-label {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #F4764B;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.selection-label-content {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.selection-label-btn {
+  margin: 10px;
 }
 
 /* forms */

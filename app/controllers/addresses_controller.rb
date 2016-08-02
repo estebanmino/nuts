@@ -27,7 +27,7 @@ class AddressesController < ApplicationController
   def create
     @address = Address.create(address_params)
 
-    if users_params
+    if users_params.has_key?(:password)
       @user = @address.build_user(users_params)
       @user.update_attribute(:is_admin, false)
 
@@ -48,6 +48,7 @@ class AddressesController < ApplicationController
           format.html { render :new }
         end
       end
+
     else
       respond_to do |format|
         if @address.save

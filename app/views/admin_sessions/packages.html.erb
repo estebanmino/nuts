@@ -1,0 +1,41 @@
+<div class="container">
+
+  <% if current_user %>
+    <% if current_user.is_admin? %>
+
+
+      <p id="notice"><%= notice %></p>
+
+      <h1>Packages</h1>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td><h4>Peso</h4></td>
+              <td><h4>Precio x kg</h4></td>
+              <td><h4>Precio</h4></td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @product.packages.each do |package| %>
+              <tr>
+                <td><h4><%= package.weight %></h4></td>
+                <td><h4><%= package.unit_price %></h4></td>
+                <td><h4><%= package.price %></h4></td>
+                <td><h4><%= link_to 'Destroy', package, method: :delete, data: { confirm: 'Are you sure?' } %></h4></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+
+      <br>
+      <%= link_to 'New Package', admin_product_new_package_path %>
+
+    <% else %>
+      <h2>No tiene los permisos para ingresar</h2>
+    <% end %>
+  <% else %>
+    <h2>Ingrese a su cuenta administrador</h2>
+  <% end %>
+</div>

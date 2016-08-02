@@ -1,37 +1,58 @@
 <div class="row">
 
-  <div class="col-xs-12 col-md-4">
-
-    <div class="panel panel-default panel-order pull-right col-xs-4">
-      <% @order_item = current_order.order_items.new %>
-
-      <%= form_for @order_item do |f| %>
-
-      <h4>Precio: $<%= product.price %></h4>
-        <div class="input-group">
-
-          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
-
-          <%= f.hidden_field :product_id, value: product.id %>
-
-          <%= f.submit "Añadir al carro de compras", class: "btn btn-primary center-block" %>
-
-        </div>
-
-      <% end %>
-    </div>
-  </div>
-
-  <div class="col-xs-12 col-md-8">
+  <div class="col-xs-10 col-xs-offset-1 col-md-8 col-lg-8 col-lg-offset-0">
 
     <h3 class="cavorting-font" style="font-size: 50px;"><%= product.name %></small></h3>
 
-    <%= image_tag product.picture, class: "img-panel img-responsive  center-block" %>
+    <%= image_tag product.picture, class: "img-panel img-responsive " %>
 
     <h4><%= product.description %></small></h4>
 
   </div>
 
+  <div class="col-xs-8 col-xs-offset-2 col-md-4 col-lg-4 col-lg-offset-0">
 
+    <div class="panel panel-default panel-order">
+
+      <% @order_item = current_order.order_items.new %>
+
+      <%= form_for @order_item do |f| %>
+
+      <div class="input-group">
+
+          <%= f.hidden_field :product_id, value: product.id %>
+
+          <div class="row selection-row ">
+            <% sorted = product.packages.sort_by { |k| k['weight'] } %>
+            <% sorted.each do |package| %>
+              <div class="selection-label">
+                <div class="selection-label-content">
+                  <%= f.radio_button :package_id, package.id %> <%= package.weight %> kgs | $<%= package.price %> <h6>$<%= package.unit_price %> por kg </h6>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="row">
+            <div class="selection-label-content">
+              <div class="col-xs-8 col-md-8 col-lg-8">
+                <h5>Cantidad:</h5>
+              </div>
+              <div class="col-xs-4 col-md-4 col-lg-4 pull-right">
+                <h5><%= f.select :quantity, [1, 2, 3, 4, 5], style: "{width: 100%;}" %></h5>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="selection-label-btn">
+            <%= f.submit "Agregar al carro", class: "btn btn-primary block-center" %>
+          </div>
+        </div>
+
+
+      <% end %>
+    </div>
+  </div>
 
 </div>

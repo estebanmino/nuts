@@ -5,11 +5,13 @@
     <% if current_user.is_admin? %>
 
     <h4><%= @product.name %></h4>
-    <h4><%= @product.price %></h4>
+    <h4>$<%= @product.price %></h4>
     <h4><%= @product.description %></h4>
-    <h4><%= @product.active %></h4>
+    <h4>Producto activo: <%= @product.active %></h4>
 
     <br>
+
+    <h3><%= link_to 'Packages', admin_product_packages_path(@product) %></h3>
     <br>
 
     <%= link_to 'Edit', admin_edit_product_path(@product) %> |

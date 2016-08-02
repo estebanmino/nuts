@@ -1,6 +1,6 @@
 class AdminSessionsController < ApplicationController
   before_action :set_order, only: [:order]
-  before_action :set_product, only: [:product, :edit_product]
+  before_action :set_product, only: [:product, :edit_product, :packages, :new_package]
 
   def new
   end
@@ -16,6 +16,13 @@ class AdminSessionsController < ApplicationController
 
   def order
     @order_items = @order.order_items
+  end
+
+  def packages
+  end
+
+  def new_package
+    @package = @product.packages.new
   end
 
   def products

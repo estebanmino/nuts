@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729030430) do
+ActiveRecord::Schema.define(version: 20160802004245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,11 @@ ActiveRecord::Schema.define(version: 20160729030430) do
     t.datetime "updated_at",  null: false
     t.integer  "product_id"
     t.integer  "order_id"
+    t.integer  "package_id"
   end
 
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  add_index "order_items", ["package_id"], name: "index_order_items_on_package_id", using: :btree
   add_index "order_items", ["product_id"], name: "index_order_items_on_product_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
@@ -53,6 +55,19 @@ ActiveRecord::Schema.define(version: 20160729030430) do
   end
 
   add_index "orders", ["address_id"], name: "index_orders_on_address_id", using: :btree
+
+  create_table "packages", force: :cascade do |t|
+    t.float    "weight"
+    t.integer  "unit_price"
+    t.integer  "price"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "product_id"
+    t.integer  "order_item_id"
+  end
+
+  add_index "packages", ["order_item_id"], name: "index_packages_on_order_item_id", using: :btree
+  add_index "packages", ["product_id"], name: "index_packages_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -80,7 +95,10 @@ ActiveRecord::Schema.define(version: 20160729030430) do
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
 
   add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "packages"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "addresses"
+  add_foreign_key "packages", "order_items"
+  add_foreign_key "packages", "products"
   add_foreign_key "users", "addresses"
 end

@@ -1,0 +1,38 @@
+<div class="container" >
+
+  <% if current_user %>
+    <% if current_user.is_admin? %>
+
+      <h1>Crear Package</h1>
+
+        <%= form_for(@package, url: admin_product_new_package_post_path) do |f| %>
+          <% if @package.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h2>
+
+              <ul>
+              <% @package.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <h3><%= f.label :weight, "Peso" %></h3>
+          <%= f.number_field :weight, :step => 0.5, class: "form-control"  %>
+
+          <h3><%= f.label :unit_price, "Precio por kg" %></h3>
+          <%= f.number_field :unit_price, class: "form-control"  %>
+
+          <h3><%= f.label :price, "Precio" %></h3>
+          <%= f.number_field :price, class: "form-control"  %>
+
+          <br>
+          <div class="actions">
+            <%= f.submit "Crear", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  </div>

@@ -1,11 +1,14 @@
+
+<% @package = order_item.package %>
+
 <div class="row">
   <div class="col-xs-5">
     <h5><%= product.name %></h5>
   </div>
   <div class="col-xs-3">
-    <h5><%=  order_item.quantity %> kg</h5>
+    <h5><%=  @package.weight %> kg</h5>
   </div>
   <div class="col-xs-4">
-    <h5>$<%=  order_item.quantity * order_item.unit_price %> </h5>
+    <h5>$<%=  order_item.quantity * @package.price %> </h5>
   </div>
 </div>

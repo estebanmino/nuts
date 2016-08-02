@@ -9,15 +9,15 @@
 
 
   <div class="row">
-    <div class="col-xs-6 col-md-6 col-lg-6">
-      <h4 class="text-right">Precio: $<%= order_item.total_price %></h4>
+    <div class="col-xs-4 col-md-4 col-lg-4">
+      <h4 class="text-right">Precio: $<%= order_item.quantity * order_item.package.price %></h4>
     </div>
 
     <div class="col-xs-4 col-md-4 col-lg-4">
-      <% if order_item.quantity > 1 %>
-        <h4 class="text-right">Cantidad: <%= order_item.quantity %> kgs</h4>
-      <% else %>
-        <h4 class="text-right">Cantidad: <%= order_item.quantity %> kg</h4>
-      <% end %>
+        <h4 class="text-right">Unidades: <%= order_item.quantity %></h4>
+    </div>
+
+    <div class="col-xs-4 col-md-4 col-lg-4">
+        <h4 class="text-right">Peso: <%= order_item.package.weight %> kgs</h4>
     </div>
 </div>

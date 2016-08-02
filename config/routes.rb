@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :packages
   resources :order_items
   resources :products
   resources :addresses
@@ -63,6 +64,12 @@ Rails.application.routes.draw do
 
   get '/admin/orders/:id', to:  'admin_sessions#order', as: 'admin_order'
   get '/admin/products/:id', to: 'admin_sessions#product', as: 'admin_product'
+
+  get '/admin/products/:id/packages', to: 'admin_sessions#packages', as: 'admin_product_packages'
+
+  get '/admin/products/:id/packages/new', to: 'admin_sessions#new_package', as: 'admin_product_new_package'
+  post '/admin/products/:id/packages/new', to: 'packages#create', as: 'admin_product_new_package_post'
+
 
   get '/admin/products/:id/edit', to: 'admin_sessions#edit_product', as: 'admin_edit_product'
 
