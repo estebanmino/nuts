@@ -12,6 +12,18 @@ margin-top: -30px;
 margin-right: 10px;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+footer {
+  position: absolute;
+  bottom: -100px;
+  width: 100%;
+
+
+}
 /* forms */
 
 .img-panel {
@@ -126,7 +138,13 @@ h2 {
 
 /* navbar */
 
-.navbar .nav li a {
+.navbar-footer {
+  background-color: #F4764B;
+  margin-bottom: 0;
+}
+
+.navbar .nav li a .span-icons{
+
 }
 
 .navbar .nav li:hover a {
@@ -174,6 +192,20 @@ h5:link {
   border-bottom-style: solid;
   border-color: #F4764B;
 }
+
+.brand-bottom {
+  margin-bottom: auto;
+  position: relative;
+  display: inline-block;
+  font-size: 50px;
+  color: white;
+}
+
+.row-bottom {
+  margin-top: 50px;
+margin-bottom: 100px;
+}
+
 
 @media only screen and (max-width: 768px) {
   /* cart sidebar*/
@@ -342,8 +374,9 @@ h5:link {
     display: none;
   }
 
-  .navbar .nav li a {
+  .navbar  {
     margin-top: 30px;
+    border-top: none;
   }
 
   .navbar-brand {
@@ -363,8 +396,13 @@ h5:link {
     color: #F4764B;
   }
 
+  .navbar-collapse li a {
+    height: 55px;
+  }
+
   .navbar-header{
     padding-left: 80px;
+    padding-top: 5px;
   }
 
   .navbar .container-fluid {
@@ -372,9 +410,12 @@ h5:link {
     padding-right: 10%;
   }
 
-  .navbar {
+  .navbar-principal {
     width: 100%;
-    height: 100px;
+    height: 70px;
+  }
+
+  .navbar-footer {
   }
 
   .nav-collapse{

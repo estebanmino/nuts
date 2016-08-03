@@ -11,12 +11,17 @@
     <% end %>
 
     <h5 class="text-right">Precio total: $<%= current_order.subtotal %></h5>
+    <br>
 
     <div class="row">
-        <%= link_to  'Checkout', checkout_path, class: 'btn btn-primary'  %>
+      <div class="col-xs-6 col-xs-offset-0">
+        <%= button_to  'Checkout', checkout_path, class: 'btn btn-primary', method: :get  %>
+      </div>
     </div>
-    <br>
+
     <div class="row">
-        <%= link_to  'Ver carro de compras', cart_path %>
+      <div class="col-xs-8 col-xs-offset-0">
+        <h4><%= link_to  'Ver carro de compras', cart_path %></h4>
+      </div>
     </div>
   <% end %>

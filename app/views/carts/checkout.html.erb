@@ -1,14 +1,17 @@
 <% if !logged_in? %>
 
-  <div class="row">
-    <div class="col-xs-10">
       <h3>Ingrese a su cuenta</h3>
+
       <%= render 'sessions/checkout_form' %>
 
-      <h3>...o continue como invitado</h3>
+      <h3>o continue como invitado</h3>
 
-      <div class="center"><%= link_to 'Continuar como invitado', shipping_path, class: "btn btn-primary" %></div>
-    </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+          <br>
+          <div class="center"><%= button_to 'Continuar como invitado', shipping_path, class: "btn btn-primary", method: :get %></div>
+        </div>
+    
   </div>
 <% else %>
   <% controller.redirect_to confirmation_path %>
