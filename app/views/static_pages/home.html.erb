@@ -1,45 +1,42 @@
 
+<div class="jumbotron" style="background-image: url(<%= asset_path 'nuts.jpg'%>);">
 
+   <h1 style="text-align: center;"><b>La mejor forma de encontrar ...</b></h1>
 
+</div>
 
-  <div class="jumbotron" style="background-image: url(<%= asset_path 'jumbotron.jpg'%>); background-size: 100%;">
+<div class="row products-header-row">
+  <h1>Productos</h1>
+</div>
 
-     <h1>La mejor forma de encontrar ...</h1>
+<div class="row products-row">
 
-  </div>
+  <% Product.all[0..3].each do |product| %>
+  <td>
+    <div class="col-xs-12 col-md-4 text-center">
+      <div class="panel panel-default panel-img" >
+        <%= link_to  product , class: 'btn btn-product' do %>
+            <div class="panel-picture" >
+              <%= image_tag product.picture, class: "img-panel img-responsive  center-block" %>
+            </div>
 
-  <div class="row">
-    <h1>Productos</h1>
-  </div>
-
-  <div class="row">
-    <% Product.all[0..3].each do |product| %>
-    <td>
-      <div class="col-xs-12 col-md-4 text-center">
-        <div class="panel panel-default panel-img" >
-          <%= link_to  product , class: 'btn btn-product' do %>
             <h3><%= product.name %></h3>
-              <div class="panel-picture" >
-                <%= image_tag product.picture, class: "img-panel img-responsive  center-block" %>
-              </div>
 
-            <p>Precio: <%= product.price  %></p>
-
-          <% end %>
-        </div>
+        <% end %>
       </div>
-      </td>
-    <% end %>
-  </div>
-  <h5><%= link_to "Mira todos los productos en la tienda", shop_path%></h5>
+    </div>
+    </td>
+  <% end %>
+</div>
+<h5><%= link_to "Mira todos los productos en la tienda", shop_path%></h5>
 
 
 
-<div class="row">
+<div class="row satisfaction-row">
 
-  <h1 style="text-align: center;">100%</h1>
-  <h1 style="text-align: center;">Satisfacción garantizada</h1>
-
+  <h1 style="text-align: center; font-size: 45px;"><b>100%</b></h1>
+  <h1 style="text-align: center;"><b>Satisfacción garantizada</b></h1>
+  <br>
   <h4 style="text-align: center;">Si tienes cualquier tipo de problema con tus productos.</h4>
   <h4 style="text-align: center;"><b>Haremos todo lo necesario para remediarlo.</b></h4>
 

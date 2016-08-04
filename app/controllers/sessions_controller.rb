@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   def create
     address = Address.find_by(email: params[:session][:email].downcase)
 
-    if address && address.user.authenticate(params[:session][:password])
+    if address && !address.user.nil? && address.user.authenticate(params[:session][:password])
       log_in address
       redirect_to home_path
       flash[:success] = 'Bienvenid@!'

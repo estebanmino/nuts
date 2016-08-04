@@ -21,8 +21,10 @@ footer {
   position: absolute;
   bottom: -100px;
   width: 100%;
+}
 
-
+header {
+  width: 100%;
 }
 /* forms */
 
@@ -46,8 +48,13 @@ footer {
 }
 
 .panel-img:hover {
-  border-color: rgb(254, 137, 44);
-  box-shadow: inset 0 0px 0px rgb(254, 137, 44), 0 0 0px rgb(0,0,0);
+  border-color: #DABFA7;
+  box-shadow: inset 0 0px 0px #DABFA7, 0 0 0px rgb(0,0,0);
+}
+
+.panel-img {
+  border-color: #DABFA7;
+  border-width: 1px;
 }
 
 .panel-order {
@@ -136,10 +143,28 @@ h2 {
   font-size: 20px;
 }
 
+.satisfaction-row {
+  background-color: #FEE600;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.products-row {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.products-header-row {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 /* navbar */
 
 .navbar-footer {
-  background-color: #F4764B;
+  background-color: #282727;
   margin-bottom: 0;
 }
 
@@ -152,6 +177,26 @@ h2 {
   background-color: transparent;
 }
 
+.navbar .nav li a {
+  color: white;
+}
+
+.navbar-menu .nav li a {
+  font-size: 25px;
+}
+
+.navbar-cart .nav li a {
+  font-size: 25px;
+}
+
+.navbar-header .nav li a:hover {
+  color: #F4764B;
+}
+
+.navbar-second .nav li a:hover {
+  color: #F4764B;
+}
+
 .navbar-principal{
   background-color: transparent;
   border-bottom-width: 1px;
@@ -160,20 +205,21 @@ h2 {
 
 .jumbotron {
   width: 100%;
+  background-size: cover;
+  height: 800px;
+  top: 0;
+  margin-top: -180px;
 }
 
 .jumbotron h1 {
   color: white;
+  margin-top: 300px;
 }
 
 h5:link {
   color: #F4764B;
 }
 
-#sidebar-header {
-  border-width: 1px;
-  border-color: #F4764B;
-}
 
 .cart-row {
   border-bottom-width: 1px;
@@ -187,10 +233,6 @@ h5:link {
 }
 
 .cart-row-sidebar {
-  border-bottom-width: 1px;
-  border-bottom-radius: 3px;
-  border-bottom-style: solid;
-  border-color: #F4764B;
 }
 
 .brand-bottom {
@@ -225,7 +267,7 @@ margin-bottom: 100px;
       right: 0;
       top: -20px;
       width: 70%;
-      background: #f7f7f7;
+      background: white;
       position: fixed;
       height: 120%;
       overflow-y: auto;
@@ -271,10 +313,7 @@ margin-bottom: 100px;
     text-align: center;
   }
 
-  .navbar-second .nav li a:hover {
-    color: #F4764B;
 
-  }
 
   .navbar-second .nav li a {
     color: #F4764B;
@@ -336,7 +375,7 @@ margin-bottom: 100px;
       right: 0;
       top: -20px;
       width: 330px;
-      background: #f7f7f7;
+      background: white;
       position: fixed;
       height: 120%;
       overflow-y: auto;
@@ -388,9 +427,7 @@ margin-bottom: 100px;
     font-size: 80px;
   }
 
-  .navbar-header .nav li a:hover {
-    color: #F4764B;
-  }
+
 
   .navbar-header .nav li a {
     color: #F4764B;
