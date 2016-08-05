@@ -6,12 +6,13 @@
 
 </div>
 
-<div class="row products-header-row">
-  <h1>Productos</h1>
-</div>
+
 
 <div class="row products-row">
-
+  <div class="row products-header-row">
+    <h1>Productos</h1>
+  </div>
+<div class="row">
   <% Product.all[0..3].each do |product| %>
   <td>
     <div class="col-xs-12 col-md-4 text-center">
@@ -29,7 +30,8 @@
     </td>
   <% end %>
 </div>
-<h5><%= link_to "Mira todos los productos en la tienda", shop_path%></h5>
+<h5 class="pull-right"><%= link_to "Mira todos los productos en la tienda", shop_path%></h5>
+</div>
 
 
 
