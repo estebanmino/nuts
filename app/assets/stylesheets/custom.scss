@@ -158,7 +158,12 @@ h2 {
   margin-right: 0;
   width: 100%;
   margin-bottom: 30px;
-  margin-top: 30px;
+  margin-top: -30px;
+}
+
+.products-row .row {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .products-header-row {
