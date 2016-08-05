@@ -319,8 +319,19 @@ margin-bottom: 100px;
 
   /* navbar */
 
-
   .navbar-toggle {
+    border-style: none;
+    padding-top: 10px;
+
+  }
+
+  .navbar-principal .container-fluid .navbar-header .navbar-toggle .icon-bar {
+    height: 3px;
+    width: 25px;
+    background-color: #282727;
+  }
+
+  .navbar-toggle span .icon-bar {
     border-color: black;
     border-width: 2px;
   }
