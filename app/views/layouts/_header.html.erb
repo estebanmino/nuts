@@ -1,62 +1,45 @@
 <header>
-  <% if logged_in? && current_user.is_admin? %>
 
-  <nav class="navbar navbar-default navbar-principal">
-    <div class="container-fluid">
+  <nav class="navbar navbar-default navbar-principal" role="navigation">
+  <div class="container-fluid">
 
-      <button class="navbar-toggle pull-left" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false" aria-controls="navbar-collapse-1">
+    <div class="navbar-header">
+
+      <button class="navbar-toggle pull-left" data-toggle="collapse" data-target="#navbar-collapse-1" >
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+        
       </button>
 
-      <div class="collapse navbar-collapse navbar-header">
-        <ul class="nav">
-          <li><a href="/" class="navbar-brand cavorting-font" >Nuts</a></li>
+      <a href="/" class=" collapse navbar-collapse navbar-brand cavorting-font" style="color: #F4764B" >Nuts</a>
+
+      <div class="navbar-cart-collapse pull-right ">
+        <ul class="nav navbar-nav pull-right ">
+          <li id="sidebar-toggle"><a href='#' class="span-icons"><span class="glyphicon glyphicon-shopping-cart"></span><%= current_order.order_items.size %></a></li>
         </ul>
       </div>
+    </div>
 
+    <% if logged_in? && current_user.is_admin? %>
 
-
-      <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-1">
+      <div class="collapse navbar-collapse navbar-menu navbar-right" id="navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
-
           <li><a href='/admin/users'>Usuarios</a></li>
           <li><a href='/admin/orders'>Ordenes</a></li>
           <li><a href='/admin/products'>Productos</a></li>
           <li><a href='/logout'>Log Out</a></li>
-
         </ul>
       </div>
+
+    <% else %>
+
+    <div class="navbar-cart pull-right ">
+      <ul class="nav navbar-nav pull-right ">
+        <li id="sidebar-toggle"><a href='#' class="span-icons"><span class="glyphicon glyphicon-shopping-cart"></span><%= current_order.order_items.size %></a></li>
+      </ul>
     </div>
-  </nav>
-
-  <% else %>
-
-  <nav class="navbar navbar-default navbar-principal">
-
-    <div class="container-fluid">
-
-      <button class="navbar-toggle pull-left" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false" aria-controls="navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <div class="navbar-cart pull-right">
-        <ul class="nav navbar-nav pull-right ">
-          <li id="menu-toggle"><a href='#' class="span-icons"><span class="glyphicon glyphicon-shopping-cart"></span><%= current_order.order_items.size %></a></li>
-        </ul>
-      </div>
-
-
-      <div class="collapse navbar-collapse navbar-header">
-        <ul class="nav">
-          <li><a href="/" class="navbar-brand cavorting-font" >Nuts</a></li>
-        </ul>
-      </div>
 
       <div class="collapse navbar-collapse navbar-menu navbar-right" id="navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
@@ -69,7 +52,7 @@
           <li class="hidden-lg"><a href='/login'>Mi Cuenta</a></li>
           <% else %>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle span-icons" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span></a>
+              <a href="#" class="dropdown-toggle  span-icons" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/users/<%= current_user.id %>">Perfil</a></li>
                 <li><a href='/logout'>Cerrar Sesión</a></li>
@@ -78,16 +61,17 @@
           <% end %>
         </ul>
       </div>
-    </div>
-  </nav>
 
-  <% end %>
+    <% end %>
+  </div>
+</nav>
 
   <nav class="navbar navbar-second">
     <ul class="nav">
       <li><a href="/">Nuts</a></li>
     </ul>
   </nav>
+</div>
 
 </header>
 
@@ -96,7 +80,7 @@
 <div id="sidebar-wrapper">
   <div id="sidebar-content">
     <h2> Carro de compras </h2>
-    <a id="menu-close" href="#" class="pull-right toggle">X</a>
+    <a id="sidebar-close" class="pull-right toggle">X</a>
       <%= render "carts/shopping_cart" %>
   </div>
 </div>

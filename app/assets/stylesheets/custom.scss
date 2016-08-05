@@ -3,13 +3,13 @@
 
 /* sidebar */
 
-#menu-toggle {
+#sidebar-toggle {
     z-index: 1;
 }
 
-#menu-close {
-margin-top: -30px;
-margin-right: 10px;
+#sidebar-close {
+margin-top: -40px;
+margin-right: 0px;
 }
 
 html {
@@ -147,11 +147,15 @@ h2 {
   background-color: #FEE600;
   padding-top: 80px;
   padding-bottom: 80px;
+  padding-left: 20%;
+  padding-right: 20%;
+  width: 100%;
+  margin: 0;
 }
 
 .products-row {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   width: 100%;
 }
 
@@ -163,6 +167,7 @@ h2 {
 
 /* navbar */
 
+
 .navbar-footer {
   background-color: #282727;
   margin-bottom: 0;
@@ -172,19 +177,24 @@ h2 {
 
 }
 
-.navbar .nav li:hover a {
+.navbar-collapse .collapse {
+}
+
+
+
+
+body#home .navbar .nav li:hover a,
+.navbar .nav li:hover a{
   color: #F4764B;
   background-color: transparent;
 }
 
-.navbar .nav li a {
+body#home .navbar-menu .nav li a,
+body#home .navbar-cart .nav li a  {
   color: white;
 }
 
-.navbar-menu .nav li a {
-  font-size: 25px;
-}
-
+.navbar-menu .nav li a,
 .navbar-cart .nav li a {
   font-size: 25px;
 }
@@ -207,8 +217,9 @@ h2 {
   width: 100%;
   background-size: cover;
   height: 800px;
-  top: 0;
+  position: static;
   margin-top: -180px;
+  background-attachment: fixed;
 }
 
 .jumbotron h1 {
@@ -308,6 +319,29 @@ margin-bottom: 100px;
 
   /* navbar */
 
+
+  .navbar-toggle {
+    border-color: black;
+    border-width: 2px;
+  }
+
+
+  .navbar-cart{
+    display: none;
+  }
+
+
+  .navbar-principal {background-color: white;}
+  .collapsing ul li a, .in ul li a, .navbar-cart-collapse a{color: #F4764B!important;}
+  .collapsing ul li a:hover, .in ul li a:hover {color: #F4764B!important;}
+  .collapsing, .navbar-cart-collapse a{color: #282727!important;}
+
+
+
+  .navbar-header a {
+    display: none;
+  }
+
   .navbar-second{
     background-color: transparent;
     text-align: center;
@@ -325,12 +359,13 @@ margin-bottom: 100px;
   }
 
   .navbar-principal{
-    background-color: transparent;
     text-align: center;
   }
 
-  .navbar-header{
-    visibility: collapse;
+
+
+  .navbar-header a{
+    color: #F4764B;
   }
 
   .navbar-toggle {
@@ -340,13 +375,9 @@ margin-bottom: 100px;
 
 
   .navbar-collapse {
-      border-top: 1px solid transparent;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
       text-align: center;
   }
 
-  .navbar-collapse.collapse {
-  }
 
   .navbar-nav {
       float: none!important;
@@ -409,6 +440,10 @@ margin-bottom: 100px;
 
   /* navbar */
 
+  .navbar-cart-collapse{
+    display: none;
+  }
+
   .navbar-second {
     display: none;
   }
@@ -429,7 +464,7 @@ margin-bottom: 100px;
 
 
 
-  .navbar-header .nav li a {
+ .navbar-header  {
     color: #F4764B;
   }
 
